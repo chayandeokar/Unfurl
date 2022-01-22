@@ -1,0 +1,68 @@
+[2022-01-22 18:42:17,511] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/secrets/secrets.yaml
+[2022-01-22 18:42:17,528] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/local/unfurl.yaml
+[2022-01-22 18:42:17,665] unfurl:INFO: Using home project at: "/home/Tkirtan/.unfurl_home/unfurl.yaml"
+[2022-01-22 18:42:17,696] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/aws-staging/secrets/secrets.yaml
+[2022-01-22 18:42:17,710] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/aws-staging/local/unfurl.yaml
+[2022-01-22 18:42:17,879] unfurl:INFO: Loaded project at /home/Tkirtan/aws-staging/unfurl.yaml
+[2022-01-22 18:42:17,905] unfurl:INFO: creating deploy job for /home/Tkirtan/aws-staging/ensemble.yaml
+[2022-01-22 18:42:17,915] unfurl:INFO: Vault password found, configuring vault ids: ['aws-staging7P', '.unfurl_homeZB']
+[2022-01-22 18:42:18,001] unfurl:DEBUG: loaded ensemble manifest at /home/Tkirtan/aws-staging/ensemble.yaml
+[2022-01-22 18:42:18,003] unfurl:INFO: Validating TOSCA template at /home/Tkirtan/aws-staging/ensemble.yaml
+[2022-01-22 18:42:18,150] tosca.model:INFO: The pre-parsed input successfully passed validation.
+[2022-01-22 18:42:18,277] unfurl:INFO: Vault password found, configuring vault ids: ['+%', '.unfurl_homeZB']
+[2022-01-22 18:42:18,410] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/./ensemble-template.yaml
+[2022-01-22 18:42:18,502] unfurl:DEBUG: loaded ensemble manifest at /home/Tkirtan/.unfurl_home/ensemble/ensemble.yaml
+[2022-01-22 18:42:18,504] unfurl:INFO: Validating TOSCA template at /home/Tkirtan/.unfurl_home/.
+[2022-01-22 18:42:18,539] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl/configurators/supervisor-template.yaml
+[2022-01-22 18:42:18,662] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl/tosca_plugins/localhost.yaml
+[2022-01-22 18:42:18,774] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl/tosca_plugins/artifacts.yaml
+[2022-01-22 18:42:18,909] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl/tosca_plugins/k8s.yaml
+[2022-01-22 18:42:19,171] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl/configurators/supervisor-template.yaml
+[2022-01-22 18:42:19,277] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl/tosca_plugins/localhost.yaml
+[2022-01-22 18:42:19,384] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl/tosca_plugins/artifacts.yaml
+[2022-01-22 18:42:19,527] unfurl:DEBUG: attempting to load YAML file: /home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl/tosca_plugins/k8s.yaml
+[2022-01-22 18:42:20,078] unfurl:VERBOSE: decrypted secret file to /home/Tkirtan/.unfurl_home/secrets/secrets.yaml
+[2022-01-22 18:42:33,416] unfurl:VERBOSE: decrypted secret file to /home/Tkirtan/aws-staging/secrets/secrets.yaml
+[2022-01-22 18:42:33,424] unfurl:INFO: starting deploy job for /home/Tkirtan/aws-staging/ensemble.yaml
+[2022-01-22 18:42:33,426] unfurl:DEBUG: checking for tasks for templates ['test_remote']
+[2022-01-22 18:42:33,429] unfurl:DEBUG: unable to find an implementation for operation "create" on node "test_remote"
+[2022-01-22 18:42:33,432] unfurl:DEBUG: creating configuration for add: Standard.configure with ('playbook: [{\'shell\': {\'cmd\': \'echo "test"\'}}]', 'cmd: echo "test"') for test_remote: add
+[2022-01-22 18:42:33,432] unfurl:DEBUG: unable to find an implementation for operation "start" on node "test_remote"
+[2022-01-22 18:42:33,433] unfurl:DEBUG: Plan for deploy:
+
+Node "test_remote" (pending):
+- deploy:
+    - operation configure (reason: add)
+Plan for deploy:
+
+Node "test_remote" (pending):
+- deploy:
+    - operation configure (reason: add)
+[2022-01-22 18:42:35,041] unfurl.task:DEBUG: rendering test_remote for add: Standard.configure
+[2022-01-22 18:42:35,044] unfurl:DEBUG: writing to /home/Tkirtan/aws-staging/pending/tasks/test_remote/configure/inventory.yaml
+[2022-01-22 18:42:35,067] unfurl:DEBUG: writing to /home/Tkirtan/aws-staging/pending/tasks/test_remote/configure/playbook.yml
+[2022-01-22 18:42:35,075] unfurl:INFO: Plan for deploy:
+
+Node "test_remote" (pending):
+- deploy:
+    - operation configure (reason: add)
+       rendered at /home/Tkirtan/aws-staging/pending/tasks/test_remote/configure/
+[2022-01-22 18:42:38,948] unfurl:INFO: Running task TaskRequest(NodeInstance('test_remote')(pending ):configure (reason: add))
+[2022-01-22 18:42:38,953] unfurl:INFO: running ansible-playbook -i /home/Tkirtan/aws-staging/pending/tasks/test_remote/configure/inventory.yaml /home/Tkirtan/aws-staging/pending/tasks/test_remote/configure/playbook.yml
+[2022-01-22 18:42:39,811] unfurl.ansible:WARNING: [WARNING]: ansible.utils.display.initialize_locale has not been called, this
+may result in incorrectly calculated text widths that can cause Display to
+print incorrect line lengths
+
+[2022-01-22 18:42:39,813] unfurl.ansible:INFO: PLAY [localhost] ***************************************************************
+[2022-01-22 18:42:41,657] unfurl.ansible:INFO: TASK [shell] *******************************************************************
+[2022-01-22 18:42:41,659] unfurl.ansible:INFO: changed: [localhost]
+[2022-01-22 18:42:41,699] unfurl.ansible:INFO: PLAY RECAP *********************************************************************
+[2022-01-22 18:42:41,701] unfurl.ansible:INFO: localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[2022-01-22 18:42:41,703] unfurl:DEBUG: ran playbook: status Status.ok changed 1, total 1 
+[2022-01-22 18:42:41,705] unfurl:DEBUG: playbook task result: {'changed': True, 'stdout': 'test', 'stderr': '', 'rc': 0, 'cmd': 'echo "test"', 'start': '2022-01-22 18:42:41.508532', 'end': '2022-01-22 18:42:41.527261', 'delta': '0:00:00.018729', 'msg': '', 'invocation': {'module_args': {'_raw_params': 'echo "test"', '_uses_shell': True, 'warn': False, 'stdin_add_newline': True, 'strip_empty_ends': True, 'argv': None, 'chdir': None, 'executable': None, 'creates': None, 'removes': None, 'stdin': None}}, 'stdout_lines': ['test'], 'stderr_lines': [], '_ansible_no_log': False}
+[2022-01-22 18:42:41,706] unfurl:DEBUG: completed task ConfigTask(NodeInstance('test_remote'):for add: Standard.configure): Status.pending; changes: success modified
+   {'stdout': 'test', 'stderr': '', 'msg': '', 'ignored': ['changed', 'rc', 'cmd', 'start', 'end', 'delta', 'invocation', 'stdout_lines', 'stderr_lines', '_ansible_no_log']}...
+[2022-01-22 18:42:41,707] unfurl:INFO: finished taskrequest ConfigTask(NodeInstance('test_remote'):for add: Standard.configure): success pending configured
+[2022-01-22 18:42:41,952] unfurl.task:DEBUG: digest for test_remote: playbook=da7d2da85301828d7e30fbabf97b8a3ea64f9a92
+[2022-01-22 18:42:42,023] unfurl:INFO: saving job changes to /home/Tkirtan/aws-staging/jobs/job2022-01-22-13-12-33-424415.yaml
+[2022-01-22 18:42:42,025] unfurl:INFO: saving changelog to /home/Tkirtan/aws-staging/jobs.tsv

@@ -1,0 +1,94 @@
+# This template is intended to be included in your ensemble.yaml manifest file
+# (by default, found at ensemble/ensemble.yaml)
+# Edit it to include any reusable your ensemble needs, such as its service_template.
+apiVersion: unfurl/v1alpha1
+kind: Ensemble
+spec:
+  service_template:
+    topology_template:
+      node_templates:
+        test_remote:
+          type: tosca:Root
+          interfaces:
+            Standard:
+              configure:
+                implementation:
+                  primary: Cmd
+                  operation_host: staging.example.com
+                inputs:
+                  cmd: echo "test"
+        # # this is an example of a minimal node template
+        # # it is essentially defining an untyped node
+        # minimalNode:
+        #   type: tosca:Root  # base type for all nodes
+        #   properties:
+        #     # You can set arbitrary properties unless the node's type has
+        #     # the "additionalProperties" metadata attribute set to false
+        #     # If it is, the properties must conform to the type's definitions
+        #     property1: foo
+        #   requirements:
+        #     # "dependency" is the base relationship type between nodes
+        #     # use it if you want to set untyped dependencies between nodes
+        #     - dependency: anotherNode
+        #   interfaces:
+        #     # you need define these operation if they are missing from node's type definition
+        #     Standard:
+        #       # to deploy a node you need to at least define a configure operation
+        #       configure: echo "created and configured"
+        #       # if you want to be able to undeploy this node, define a delete operation
+        #       delete: echo "deleted"
+        #     Install:
+        #       # if you want to be able to check on the status of a deployed node,
+        #       # define a check operation
+        #       check: echo "check ok"
+lock:
+  runtime:
+    unfurl:
+      version: 0.3.1
+      digest: ''
+  repositories:
+  - url: file:/home/Tkirtan/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl
+    revision: ''
+    initial: ''
+    name: unfurl
+  - url: file:/home/Tkirtan/aws-staging
+    revision: ''
+    initial: ''
+    name: self
+  - url: file:///home/Tkirtan/aws-staging/
+    revision: 151801ba98c754336de4a0f7f8ba9fa077171b09-dirty
+    initial: d284733affe575619ee9bb941fb9a646f22b2a06
+  - url: file:///home/Tkirtan/aws-staging/
+    revision: 151801ba98c754336de4a0f7f8ba9fa077171b09-dirty
+    initial: d284733affe575619ee9bb941fb9a646f22b2a06
+  ensembles:
+    localhost:
+      uri: git-local://66b4a53418fb150f6c97ce2fb34e4f68fd8b843c:/ensemble.yaml
+      changeId:
+      digest: ee3639d3e7221776a38e679883d4fce3320b1870
+      manifest:
+        file: ensemble/ensemble.yaml
+status:
+  inputs: {}
+  outputs: {}
+  instances:
+    test_remote:
+      template: test_remote
+      priority: required
+      readyState:
+        local: ok
+        state: configured
+      lastConfigChange: A21MDCXQ0001
+      created: A21MDCXQ0001
+lastJob:
+  changeId: A21MDCXQ0000
+  startTime: 2022-01-22-13-12-33-424415
+  workflow: deploy
+  options: {}
+  summary: 1 tasks (1 changed, 1 ok, 0 failed, 0 unknown, 0 skipped)
+  specDigest: 7f5887f5d563e1885996644b9da78da18d3b2776
+  priority: required
+  readyState:
+    local: ok
+  changelog: jobs/job2022-01-22-13-12-33-424415.yaml
+jobsLog: jobs.tsv

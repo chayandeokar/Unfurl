@@ -1,0 +1,44 @@
+manifest: ../ensemble.yaml
+changes:
+- changeId: A21MDCXQ0000
+  startTime: 2022-01-22-13-12-33-424415
+  workflow: deploy
+  options: {}
+  summary: 1 tasks (1 changed, 1 ok, 0 failed, 0 unknown, 0 skipped)
+  specDigest: 7f5887f5d563e1885996644b9da78da18d3b2776
+  priority: required
+  readyState:
+    local: ok
+  changelog: jobs/job2022-01-22-13-12-33-424415.yaml
+- changeId: A21MDCXQ0001
+  target: ::test_remote
+  priority: required
+  readyState:
+    local: ok
+  implementation:
+    operation: configure
+    className: unfurl.configurators.ansible.AnsibleConfigurator
+  inputs:
+    playbook:
+    - shell:
+        cmd: echo "test"
+  result:
+    stdout: test
+    stderr: ''
+    msg: ''
+    ignored:
+    - changed
+    - rc
+    - cmd
+    - start
+    - end
+    - delta
+    - invocation
+    - stdout_lines
+    - stderr_lines
+    - _ansible_no_log
+  digestKeys: playbook
+  digestValue: da7d2da85301828d7e30fbabf97b8a3ea64f9a92
+  summary: 'configure on instance test_remote (type tosca.nodes.Root, status ok) using
+    configurator for add: Standard.configure (unfurl.configurators.ansible.AnsibleConfigurator),
+    priority: required, reason: add'

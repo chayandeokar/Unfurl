@@ -1,0 +1,6 @@
+all:
+  hosts:
+    localhost:
+      ansible_python_interpreter: /home/Tkirtan/.unfurl_home/.venv/bin/python
+  vars: {}
+  children: {}
